@@ -1,7 +1,8 @@
 import cors from 'cors';
 import express from 'express';
+// import { createProxyMiddleware } from 'http-proxy-middleware.js';
 import adminRoutes from './routes/adminRoutes.js';
-import sitemap from './routes/sitemapRoute.js';
+import sitemapRoute from './routes/sitemapRoute.js';
 import pdfRouter from './routes/yearsRoutes.js';
 const app = express();
 app.use(cors());
@@ -20,5 +21,13 @@ app.use(cors(
 // app.use('/user',userRouter)
 app.use('/admin',adminRoutes);
 app.use('/pdf',pdfRouter)
-app.use('/',sitemap)
+// app.use(
+//     '/',
+//     createProxyMiddleware({
+//       target: 'http://localhost:8000',
+//       changeOrigin: true,
+//     }),
+//     sitemapRoute
+//   );
+app.use('/',sitemapRoute)
 export { app };

@@ -1,5 +1,6 @@
 import { Router } from "express";
 const router = Router();
+
 router.route('/sitemap.xml').get((req,res)=>{
     // Generate the XML sitemap here
     // This can involve querying your database or fetching URLs dynamically
@@ -55,6 +56,8 @@ router.route('/sitemap.xml').get((req,res)=>{
 </urlset>`;
     
     res.header('Content-Type', 'application/xml');
+    // console.log(sitemap);
     return res.send(sitemap);
+   
 })
 export default router
