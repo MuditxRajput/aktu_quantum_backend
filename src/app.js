@@ -2,6 +2,7 @@ import cors from 'cors';
 import express from 'express';
 // import { createProxyMiddleware } from 'http-proxy-middleware.js';
 import adminRoutes from './routes/adminRoutes.js';
+import fakeRoute from './routes/fakeRoutes.js';
 import postRouter from './routes/postRoutes.js';
 import sitemapRoute from './routes/sitemapRoute.js';
 import pdfRouter from './routes/yearsRoutes.js';
@@ -24,4 +25,5 @@ app.use('/admin',adminRoutes);
 app.use('/pdf',pdfRouter)
 app.use('/post',postRouter)
 app.use('/',sitemapRoute)
+app.use('/call',fakeRoute)
 export { app };
